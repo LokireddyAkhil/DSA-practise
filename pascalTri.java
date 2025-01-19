@@ -8,8 +8,10 @@ public class pascalTri {
         int rows = sc.nextInt();
 //        int pas[][]= pas(rows);
 //        printm(pas);
-        List<List<Integer>> pst = past(rows);
-        System.out.println(pst);
+//        List<List<Integer>> pst = past(rows);
+        int pst[][]= past0(rows);
+//        System.out.println(pst);
+        printm(pst);
     }
     public static void printm(int [][]arr){
         for(int i=0;i<arr.length;i++){
@@ -32,6 +34,7 @@ public class pascalTri {
 
         return pas;
     }
+    // better
     public static List<List<Integer>> past(int n){
         List<List<Integer>> past = new ArrayList<>(n);
         for(int i=0;i<n;i++){
@@ -45,6 +48,35 @@ public class pascalTri {
             past.add(l);
         }
         return past;
+    }
+
+
+    public static int[][] past0(int n){
+        int arr[][]= new int[n][];
+        for(int i=0;i<n;i++){
+            arr[i]= new int[i+1];
+            for(int j=0;j<=i;j++){
+                arr[i][j]= combination(i,j);
+            }
+        }
+        return arr;
+    }
+    public static int combination(int m, int k) {
+        if (k < 0 || m < k) return 0; // Invalid case: return 0 or handle differently
+        int n = factorial(m);
+        int r = factorial(k);
+        int n_r = factorial(m - k);
+        return n / (r * n_r);
+    }
+    public static int factorial(int a) {
+        if (a < 0) return 1; // Factorial for negative numbers is undefined; you could throw an exception here.
+        int i = 1;
+        int f = 1;
+        while (i <= a) {
+            f *= i;
+            i++;
+        }
+        return f;
     }
 
 
