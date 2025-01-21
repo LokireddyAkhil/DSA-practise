@@ -1,7 +1,7 @@
 public class StrBuilderClass {
 
     public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder("GeeksforGeeks");
+        StringBuilder sb = new StringBuilder("java language");
         System.out.println("Initial StringBuilder: " + sb);
 
         // 1. Append a string to the StringBuilder
