@@ -44,6 +44,6 @@ public class SelectionSort {
 //    selection sort is an unstable sort
 // total number of swaps = (n-1) this is the main reason why selection sort is better. if in the question they asked to us to consider the cost of swaping
     // in best case also the time complexity is o(n^2) where as in bubble sort best case time complexity is o(n) i reapt if we want to consider the cost of swaping then only selection sort is better and in all other cases bubble sort is better
-    
+
 
 }
