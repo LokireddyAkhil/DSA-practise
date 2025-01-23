@@ -22,7 +22,7 @@ public class uppperbound {
             int mid = low + (high - low) / 2;
 
             if (arr[mid] > target) {
-                result = mid; 
+                result = mid;
                 high = mid - 1;
             } else {
                 low = mid + 1;
