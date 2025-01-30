@@ -19,7 +19,6 @@ public class kClosestElements {
                 low = mid+1;
             }
         }
-        System.out.println(lb);
     }
 //    public List<Integer> findClosestElements(int[] arr, int k, int x) {
     // works only for some cases try to implement it fully in feature.
