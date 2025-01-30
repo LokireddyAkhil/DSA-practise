@@ -7,7 +7,7 @@ public class SearchInRoatedArray {
         Scanner sc = new Scanner(System.in);
         System.out.println("enter target");
         int target = sc.nextInt();
-       int k = target(arr,target);
+       int k = target1(arr,target);
         System.out.println(k);
     }
     public static int target(int [] arr, int t) {
@@ -57,5 +57,33 @@ public class SearchInRoatedArray {
             }
         }
         return -1;
+    }
+    public static int target1(int arr[],int t){
+        int low = 0;
+         int high =arr.length-1;
+         while(low<=high){
+             int mid = low + (high-low)/2;
+             if(arr[mid]== t){
+                 return mid;
+             }
+             if (arr[mid]<arr[high]) {
+                 if(arr[mid]<t && t<=arr[high]){
+                     low = mid+1;
+                 }
+                 else{
+                     high = mid-1;
+                 }
+             }
+             else if(arr[mid]>arr[high]){
+                 if(t>=arr[low] && t<arr[mid]){
+                     high = mid-1;
+
+                 }
+                 else {
+                     low = mid+1;
+                 }
+             }
+         }
+         return -1;
     }
 }
