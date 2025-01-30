@@ -1,12 +1,60 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class kClosestElements {
     public static void main(String[] args) {
+        int arr[]={10,23,45,67,68,69};
+        List<Integer> brr = findClosestElements(arr,3,60);
+        System.out.println(Arrays.toString(brr.toArray()));
 
     }
-    public static void LowerBound(int arr[],int x){
+    public static  List<Integer> findClosestElements(int[] arr, int k, int x) {
+        List<Integer> res = new ArrayList<>();
+        if(x>arr[arr.length-1]){
+            for(int i=arr.length-1;i>=arr.length-k;i--){
+                res.add(arr[i]);
+            }
+            Collections.sort(res);
+            return res;
+        }
+        if(x<arr[0]){
+            for(int i=0;i<k;i++){
+                res.add(arr[i]);
+            }
+            return res;
+        }
+        int lb = LowerBound(arr,x);
+        int i= lb-1;
+        int j =lb;
+        while(k>0 && i>=0 && j<arr.length){
+            int di = Math.abs(x-arr[i]);
+            int dj = Math.abs(x-arr[j]);
+            if(di<=dj){
+                res.add(arr[i]);
+                i--;
+            }
+            else{
+                res.add(arr[j]);
+                j++;
+            }
+            k--;
+        }
+        while(i<0 && k>0){
+            res.add(arr[j]);
+            j++;
+            k--;
+        }
+        while(j==arr.length && k>0){
+            res.add(arr[i]);
+            i--;
+            k--;
+        }
+        Collections.sort(res);
+        return res;
+    }
+    public static  int  LowerBound(int arr[],int x){
         int lb = arr.length;;
         int low =0;
         int high = arr.length-1;
@@ -19,6 +67,7 @@ public class kClosestElements {
                 low = mid+1;
             }
         }
+        return lb;
     }
 //    public List<Integer> findClosestElements(int[] arr, int k, int x) {
     // works only for some cases try to implement it fully in feature.
