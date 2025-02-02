@@ -1,4 +1,3 @@
-package SortingAlgorithims;
 
 public class shipCapacityDedays {
     public static void main(String[] args) {
