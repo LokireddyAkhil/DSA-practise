@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class QuickselectAlgo {
+    // time complexity = O(nlogk)
     static int k ;
     static int ans;
     public static void main(String[] args) {
