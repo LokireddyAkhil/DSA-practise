@@ -8,7 +8,6 @@ public class CountAndSay {
         int a = sc.nextInt();
         String s = CAS(a);
         System.out.println(s);
-
     }
     public static String CAS(int n){
         if(n==1) return "1";
@@ -25,7 +24,6 @@ public class CountAndSay {
                 ans += s.charAt(i);
                 i=j;
             }
-
         }
         int len = j-i;
         ans += len;
