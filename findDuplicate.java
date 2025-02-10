@@ -17,9 +17,9 @@ public class findDuplicate {
         System.out.println(c);
 
     }
-    public static int findDuplicate2(int[] arr) {
-        // using xor operator
-    }
+//    public static int findDuplicate2(int[] arr) {
+//        // using xor operator
+//    }
     public static int findDuplicate(int[] arr) {
         // you can even use frequncy arry which uses isimilar time and space complexity
         // time complexity o(n)
