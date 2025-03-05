@@ -7,6 +7,8 @@ public class StockSpanGFG {
         print(res);
     }
     public static int[] CalculateSpan(int arr[]){
+        // t.c = o(N)
+        // s.c  = o(n)
         int n = arr.length;
         int res[]= new int[arr.length];
         res[0]=1;
@@ -16,7 +18,11 @@ public class StockSpanGFG {
             while(st.size()>0 && arr[st.peek()]<=arr[i]){
                 st.pop();
             }
-            res[i]=i-st.peek();
+            if (st.isEmpty()) {
+                res[i] = i + 1;
+            } else {
+                res[i] = i - st.peek();
+            }
             st.push(i);
         }
         return res;
