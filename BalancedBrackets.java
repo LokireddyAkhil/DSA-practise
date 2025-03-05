@@ -48,34 +48,26 @@ public static boolean isBalance(String s) {
 }
     public static boolean isValid(String s) {
         //leetcode 20.
-//         Time Complexity: O(n)
+//Time Complexity: O(n)
 // Space Complexity: O(n)
         Stack<Character> st = new Stack<>();
-        char ch[] = s.toCharArray();
-        if (ch.length % 2 != 0) {
+        if (s.length() % 2 != 0) {
             return false;
         }
-        for (int i = 0; i < ch.length; i++) {
-            if (ch[i] == '(' || ch[i] == '{' || ch[i] == '[') {
-                st.push(ch[i]);
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '['  ) {
+                st.push(s.charAt(i));
             } else {
-                if (st.size() == 0)
-                    return false;
-                if (st.peek() == '(' || st.peek() == '{' || st.peek() == '[') {
-                    if ((ch[i] == ')' && st.peek() == '(') ||
-                            (ch[i] == '}' && st.peek() == '{') ||
-                            (ch[i] == ']' && st.peek() == '[')) {
-                        st.pop();
-                    } else {
-                        return false;
-                    }
-
-                }
+                if (st.isEmpty()) return false;
+                if ((s.charAt(i)== ')' && st.peek() == '(') || (s.charAt(i)== '}' && st.peek() == '{') || (s.charAt(i)== ']' && st.peek() == '[')) st.pop();
+                else return false; // we are returning false if and only if st.peek() doesnot returns the matching parthensis for example if it returns '[' for this '('
             }
+
         }
-        if (st.size() == 0)
+        if (st.size() > 0)
+            return false;
+        else
             return true;
-        return false;
     }
 
 
